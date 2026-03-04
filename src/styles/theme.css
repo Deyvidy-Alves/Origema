@@ -1,0 +1,84 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  /* Marrom escuro atua como o texto base de todo o site (Auxiliar) */
+  --foreground: #4C3D19; 
+  
+  --card: #ffffff;
+  --card-foreground: #4C3D19;
+  --popover: #ffffff;
+  --popover-foreground: #4C3D19;
+  
+  /* Verde como Cor Primária (Botões e destaques) */
+  --primary: #354024;
+  --primary-foreground: #ffffff;
+  
+  /* Bege como Cor Secundária (Navbar, fundos suaves) */
+  --secondary: #CFBB99;
+  --secondary-foreground: #4C3D19;
+  
+  --muted: #f7f5f0;
+  --muted-foreground: #6b6b5d;
+  --accent: #CFBB99;
+  --accent-foreground: #4C3D19;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: #CFBB99;
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #CFBB99;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #354024;
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    font-size: var(--font-size);
+  }
+  h1, h2, h3, h4, label, button {
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+  input {
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
