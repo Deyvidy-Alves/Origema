@@ -77,7 +77,9 @@
   
   /* Separamos os títulos e forçamos um peso de negrito forte (700 ou 800) */
   h1, h2, h3, h4 {
-    font-weight: 800 !important; /* 800 é Extra Bold, vai deixar a fonte bem encorpada */
+    font-weight: normal !important; /* Evita o bug do falso negrito */
+    -webkit-text-stroke: 0.6px currentColor; /* Adiciona um contorno sutil na própria cor do texto */
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.1); /* Dá um micro-volume extra */
     line-height: 1.2;
   }
   

@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Leaf, Recycle, Heart, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
-import logoIcon from "../../assets/flor-secundaria.png";
+import logoIcon from "../../assets/logo-secundaria.png";
 
 export default function Home() {
   const products = [
@@ -24,7 +24,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1723549644189-c669e6f0e227?w=1080')` }} />
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <img src={logoIcon} alt="Origema" className="h-48 w-auto mx-auto mb-8" />
+          <img src={logoIcon} alt="Origema" className="h-[300px] md:h-[500px] lg:h-[550px] w-auto mx-auto mb-10 object-contain"/>
           <h1 className="text-4xl md:text-6xl mb-6 text-foreground font-['Chetta_Vissto']">Design que respeita origens</h1>
           <p className="text-xl md:text-2xl mb-8 text-foreground/80 max-w-2xl mx-auto">
             Criamos produtos sustentáveis que unem estética contemporânea, funcionalidade e responsabilidade socioambiental
