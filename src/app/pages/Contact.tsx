@@ -56,13 +56,11 @@ export default function Contact() {
     }
   };
 
-  // INFORMAÇÕES DE CONTATO ATUALIZADAS (Email, WhatsApp e Endereço)
   const contactInfo = [
     { 
       icon: <Mail className="w-6 h-6" />, 
       title: "Email", 
       value: "deyvidyalvessilvacontato@gmail.com", 
-      // Abre direto no site do Gmail pronto para enviar!
       link: "https://mail.google.com/mail/?view=cm&fs=1&to=deyvidyalvessilvacontato@gmail.com&su=Contato%20pelo%20site%20Origema" 
     },
     { 
@@ -85,6 +83,9 @@ export default function Contact() {
     { title: "Instituições", description: "Projetos especiais culturais", cta: "Projetos Culturais" }
   ];
 
+  // Classe padrão para todos os inputs ficarem uniformes e bonitos
+  const inputStyles = "bg-white border border-foreground/20 shadow-sm focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary text-foreground";
+
   return (
     <div className="min-h-screen bg-white">
       <section className="bg-primary text-white py-20">
@@ -98,31 +99,31 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
-            {/* Formulário */}
+            {/* Formulário com bordas corrigidas */}
             <div className="bg-secondary/10 p-8 rounded-lg shadow-sm border border-secondary/30">
               <h2 className="text-3xl mb-6 text-foreground font-bold">Envie sua Mensagem</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Label htmlFor="name">Nome completo *</Label>
-                  <Input id="name" name="name" required value={formData.name} onChange={handleChange} className="bg-white border-secondary/50 focus:border-primary" />
+                  <Label htmlFor="name" className="text-foreground font-semibold">Nome completo *</Label>
+                  <Input id="name" name="name" required value={formData.name} onChange={handleChange} className={inputStyles} />
                 </div>
                 <div>
-                  <Label htmlFor="email">Email *</Label>
-                  <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className="bg-white border-secondary/50 focus:border-primary" />
+                  <Label htmlFor="email" className="text-foreground font-semibold">Email *</Label>
+                  <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={inputStyles} />
                 </div>
                 <div>
-                  <Label htmlFor="phone">Telefone</Label>
-                  <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className="bg-white border-secondary/50 focus:border-primary" />
+                  <Label htmlFor="phone" className="text-foreground font-semibold">Telefone</Label>
+                  <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className={inputStyles} />
                 </div>
                 <div>
-                  <Label htmlFor="subject">Assunto *</Label>
-                  <Input id="subject" name="subject" required value={formData.subject} onChange={handleChange} className="bg-white border-secondary/50 focus:border-primary" />
+                  <Label htmlFor="subject" className="text-foreground font-semibold">Assunto *</Label>
+                  <Input id="subject" name="subject" required value={formData.subject} onChange={handleChange} className={inputStyles} />
                 </div>
                 <div>
-                  <Label htmlFor="message">Mensagem *</Label>
-                  <Textarea id="message" name="message" required rows={6} value={formData.message} onChange={handleChange} className="bg-white border-secondary/50 focus:border-primary" />
+                  <Label htmlFor="message" className="text-foreground font-semibold">Mensagem *</Label>
+                  <Textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className={inputStyles} />
                 </div>
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg">
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-bold shadow-md">
                   Enviar Mensagem <Send className="ml-2 w-5 h-5" />
                 </Button>
               </form>
@@ -139,7 +140,7 @@ export default function Contact() {
                       href={info.link}
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm border border-secondary/20 hover:border-primary hover:shadow-md transition-all group cursor-pointer block"
+                      className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm border border-secondary/40 hover:border-primary hover:shadow-md transition-all group cursor-pointer block"
                     >
                       <div className="flex-shrink-0 w-12 h-12 bg-secondary/40 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                         {info.icon}
@@ -177,7 +178,7 @@ export default function Contact() {
                 
                 <Button 
                   onClick={() => handlePartnershipClick(type.title)}
-                  className="w-full bg-primary text-white hover:bg-primary/90 mt-auto"
+                  className="w-full bg-primary text-white hover:bg-primary/90 mt-auto shadow-sm"
                 >
                   {type.cta}
                 </Button>
