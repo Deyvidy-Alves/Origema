@@ -7,6 +7,7 @@ export default function Footer() {
     <footer className="bg-foreground text-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
           <div className="md:col-span-2">
             <img
               src={logoHorizontal}
@@ -33,10 +34,18 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4 text-white">Conecte-se</h3>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-white transition-colors"><Instagram size={24} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Facebook size={24} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Linkedin size={24} /></a>
-              <a href="mailto:contato@origema.com.br" className="hover:text-white transition-colors"><Mail size={24} /></a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Instagram">
+                <Instagram size={24} />
+              </a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Facebook">
+                <Facebook size={24} />
+              </a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="LinkedIn">
+                <Linkedin size={24} />
+              </a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=deyvidyalvessilvacontato@gmail.com&su=Contato%20pelo%20site%20Origema" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Enviar Email">
+                <Mail size={24} />
+              </a>
             </div>
           </div>
         </div>
