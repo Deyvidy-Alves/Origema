@@ -1,5 +1,8 @@
-/* 1. Importando a Montserrat do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* Importa a Montserrat (para textos limpos e modernos) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Importa a Playfair Display (para títulos com cara de revista premium) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&display=swap');
 
 /* 2. Configurando a sua fonte customizada Chetta Vissto */
 @font-face {
