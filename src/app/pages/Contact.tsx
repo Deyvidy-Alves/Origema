@@ -7,7 +7,6 @@ import { Label } from "../components/ui/label";
 import { toast } from "sonner";
 
 export default function Contact() {
-  // Controle do estado do formulário
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -15,7 +14,6 @@ export default function Contact() {
     
     toast("Enviando sua mensagem...");
 
-    // Tenta enviar os dados via FormSubmit para não precisar criar um backend só pra isso
     try {
       const response = await fetch("https://formsubmit.co/ajax/deyvidyalvessilvacontato@gmail.com", {
         method: "POST",
@@ -36,7 +34,6 @@ export default function Contact() {
 
       if (response.ok) {
         toast.success("Mensagem enviada com sucesso! Retornaremos em breve.");
-        // Limpa os inputs se enviou certinho
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
         toast.error("Ocorreu um erro ao enviar. Tente novamente.");
@@ -46,12 +43,10 @@ export default function Contact() {
     }
   };
 
-  // Atualiza os dados conforme o usuário digita
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Função para os botões de parceria preencherem o assunto automaticamente e rolarem a tela
   const handlePartnershipClick = (typeTitle: string) => {
     setFormData({ ...formData, subject: `Interesse em Parceria - ${typeTitle}` });
     
@@ -61,10 +56,27 @@ export default function Contact() {
     }
   };
 
+  // INFORMAÇÕES DE CONTATO ATUALIZADAS (Email, WhatsApp e Endereço)
   const contactInfo = [
-    { icon: <Mail className="w-6 h-6" />, title: "Email", value: "contato@origema.com.br", link: "mailto:contato@origema.com.br" },
-    { icon: <Phone className="w-6 h-6" />, title: "Telefone", value: "(88) 9354-4345", link: "tel:+5588993544345" },
-    { icon: <MapPin className="w-6 h-6" />, title: "Endereço", value: "São Paulo, Brasil", link: null }
+    { 
+      icon: <Mail className="w-6 h-6" />, 
+      title: "Email", 
+      value: "deyvidyalvessilvacontato@gmail.com", 
+      // Abre direto no site do Gmail pronto para enviar!
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=deyvidyalvessilvacontato@gmail.com&su=Contato%20pelo%20site%20Origema" 
+    },
+    { 
+      icon: <Phone className="w-6 h-6" />, 
+      title: "WhatsApp", 
+      value: "(88) 99354-4345", 
+      link: "https://wa.me/5588993544345?text=Olá,%20vim%20pelo%20site%20da%20Origema%20e%20gostaria%20de%20falar%20com%20vocês!" 
+    },
+    { 
+      icon: <MapPin className="w-6 h-6" />, 
+      title: "Endereço", 
+      value: "IFCE Campus Cedro - CE", 
+      link: "https://www.google.com/maps/search/?api=1&query=IFCE+Cedro+CE" 
+    }
   ];
 
   const partnershipTypes = [
@@ -82,10 +94,11 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ID 'contato-form' permite a ancoragem suave da tela */}
       <section id="contato-form" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* Formulário */}
             <div className="bg-secondary/10 p-8 rounded-lg shadow-sm border border-secondary/30">
               <h2 className="text-3xl mb-6 text-foreground font-bold">Envie sua Mensagem</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -115,20 +128,27 @@ export default function Contact() {
               </form>
             </div>
 
+            {/* Informações de Contato */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl mb-6 text-foreground font-bold">Informações de Contato</h2>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm border border-secondary/20">
-                      <div className="flex-shrink-0 w-12 h-12 bg-secondary/40 rounded-full flex items-center justify-center text-primary">
+                    <a 
+                      key={index} 
+                      href={info.link}
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm border border-secondary/20 hover:border-primary hover:shadow-md transition-all group cursor-pointer block"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 bg-secondary/40 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                         {info.icon}
                       </div>
                       <div className="flex-1">
                         <h3 className="text-sm text-foreground/60 mb-1 font-semibold">{info.title}</h3>
-                        <p className="text-lg text-foreground font-bold">{info.value}</p>
+                        <p className="text-lg text-foreground font-bold group-hover:text-primary transition-colors">{info.value}</p>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -146,7 +166,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Cartões de Parcerias */}
       <section className="py-20 bg-secondary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl mb-12 text-center text-foreground font-bold">Parcerias e Colaborações</h2>
