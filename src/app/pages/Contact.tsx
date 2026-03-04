@@ -96,53 +96,55 @@ export default function Contact() {
 
       <section id="contato-form" className="py-20 bg-secondary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* O segredo: items-stretch faz as colunas terem o mesmo tamanho */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
             
-            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-secondary/20">
+            {/* Formulário - h-full garante que ele preencha a altura da coluna */}
+            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-secondary/20 flex flex-col h-full">
               <div className="mb-8">
-                <h2 className="text-3xl text-foreground mb-2 font-['Chetta_Vissto']">Envie sua Mensagem</h2>
+                <h2 className="text-3xl text-foreground font-['Chetta_Vissto'] mb-2">Envie sua Mensagem</h2>
                 <p className="text-foreground/60 font-['Montserrat']">Preencha os dados abaixo e retornaremos o mais breve possível.</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 flex-grow flex flex-col justify-between">
+                <div className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-xs font-bold text-foreground/70 uppercase tracking-widest font-['Montserrat']">Nome completo *</Label>
-                    <Input id="name" name="name" required value={formData.name} onChange={handleChange} className={`${inputStyles} h-14`} />
+                    <Input id="name" name="name" required value={formData.name} onChange={handleChange} className={`${inputStyles} h-12`} />
                   </div>
+                  
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-xs font-bold text-foreground/70 uppercase tracking-widest font-['Montserrat']">Email *</Label>
-                    <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={`${inputStyles} h-14`} />
+                    <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={`${inputStyles} h-12`} />
                   </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-xs font-bold text-foreground/70 uppercase tracking-widest font-['Montserrat']">Telefone</Label>
-                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className={`${inputStyles} h-14`} />
+                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className={`${inputStyles} h-12`} />
                   </div>
+
                   <div className="space-y-2">
                     <Label htmlFor="subject" className="text-xs font-bold text-foreground/70 uppercase tracking-widest font-['Montserrat']">Assunto *</Label>
-                    <Input id="subject" name="subject" required value={formData.subject} onChange={handleChange} className={`${inputStyles} h-14`} />
+                    <Input id="subject" name="subject" required value={formData.subject} onChange={handleChange} className={`${inputStyles} h-12`} />
                   </div>
-                </div>
 
-                <div className="space-y-2 pt-2">
-                  <Label htmlFor="message" className="text-xs font-bold text-foreground/70 uppercase tracking-widest font-['Montserrat']">Sua Mensagem *</Label>
-                  <Textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className={`${inputStyles} p-4 resize-none`} />
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-xs font-bold text-foreground/70 uppercase tracking-widest font-['Montserrat']">Sua Mensagem *</Label>
+                    <Textarea id="message" name="message" required rows={4} value={formData.message} onChange={handleChange} className={`${inputStyles} p-3 resize-none`} />
+                  </div>
                 </div>
                 
                 <div className="pt-4">
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-7 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-['Montserrat']">
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-['Montserrat']">
                     Enviar Mensagem <Send className="ml-2 w-5 h-5" />
                   </Button>
                 </div>
               </form>
             </div>
 
-            <div className="lg:col-span-5 space-y-8 lg:pt-8">
-              <div>
+            {/* Coluna de Informações - h-full e flex-col para alinhar com o lado esquerdo */}
+            <div className="lg:col-span-5 flex flex-col h-full space-y-8">
+              <div className="lg:pt-4">
                 <h2 className="text-3xl mb-6 text-foreground font-['Chetta_Vissto']">Informações de Contato</h2>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
@@ -153,19 +155,20 @@ export default function Contact() {
                       rel="noopener noreferrer" 
                       className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border border-secondary/40 hover:border-primary hover:shadow-md transition-all group cursor-pointer block"
                     >
-                      <div className="flex-shrink-0 w-14 h-14 bg-secondary/40 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <div className="flex-shrink-0 w-12 h-12 bg-secondary/40 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                         {info.icon}
                       </div>
                       <div className="flex-1 pt-1 font-['Montserrat']">
                         <h3 className="text-xs text-foreground/50 uppercase tracking-wider font-bold mb-1">{info.title}</h3>
-                        <p className="text-lg text-foreground font-bold group-hover:text-primary transition-colors">{info.value}</p>
+                        <p className="text-base text-foreground font-bold group-hover:text-primary transition-colors break-all">{info.value}</p>
                       </div>
                     </a>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-primary text-white p-8 rounded-2xl shadow-lg">
+              {/* mt-auto empurra o Horário de Atendimento para o rodapé do grid, alinhando com o botão do formulário */}
+              <div className="bg-primary text-white p-8 rounded-2xl shadow-lg mt-auto">
                 <h3 className="text-2xl mb-4 text-secondary font-['Chetta_Vissto']">Horário de Atendimento</h3>
                 <div className="space-y-3 font-medium opacity-90 font-['Montserrat']">
                   <div className="flex justify-between border-b border-white/10 pb-2">
