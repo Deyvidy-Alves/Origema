@@ -19,7 +19,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-['Montserrat']">
       {/* Seção de Destaque (Hero) */}
       <section className="relative bg-primary text-white py-20 overflow-hidden">
         <div className="absolute right-0 top-0 opacity-10">
@@ -27,8 +27,8 @@ export default function About() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl mb-6 font-bold">A Origema</h1>
-            <p className="text-xl leading-relaxed text-secondary">
+            <h1 className="text-5xl mb-6 font-['Chetta_Vissto']">A Origema</h1>
+            <p className="text-xl leading-relaxed text-secondary font-['Montserrat']">
               Somos uma empresa brasileira que acredita no poder transformador do design consciente. Cada produto que criamos carrega a essência da sustentabilidade, o respeito às origens e o compromisso com um futuro mais equilibrado.
             </p>
           </div>
@@ -40,8 +40,8 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl mb-6 text-foreground font-bold">Nossa História</h2>
-              <div className="space-y-4 text-foreground/80 leading-relaxed text-lg">
+              <h2 className="text-4xl mb-6 text-foreground font-['Chetta_Vissto']">Nossa História</h2>
+              <div className="space-y-4 text-foreground/80 leading-relaxed text-lg font-['Montserrat']">
                 <p>
                   A <strong>Origema</strong> foi fundada em 2018 por um grupo de jovens designers recém-formados que compartilhavam a inquietação com o consumo excessivo e o descarte de materiais na indústria do design.
                 </p>
@@ -63,13 +63,12 @@ export default function About() {
       {/* Trajetória da Empresa */}
       <section className="py-20 bg-secondary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl mb-12 text-center text-foreground font-bold">Nossa Trajetória</h2>
+          <h2 className="text-4xl mb-12 text-center text-foreground font-['Chetta_Vissto']">Nossa Trajetória</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {timeline.map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary h-full flex flex-col">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary h-full flex flex-col font-['Montserrat']">
                 <div className="text-3xl text-primary font-bold mb-2">{item.year}</div>
-                <h3 className="text-xl text-foreground font-bold mb-3">{item.title}</h3>
-                {/* flex-grow para manter os cards com o mesmo tamanho mesmo se o texto variar */}
+                <h3 className="text-xl text-foreground font-bold mb-3 font-['Chetta_Vissto']">{item.title}</h3>
                 <p className="text-foreground/70 text-sm flex-grow">{item.description}</p>
               </div>
             ))}
@@ -82,14 +81,14 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="bg-primary text-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-3xl mb-4 font-bold text-secondary">Missão</h3>
-              <p className="text-lg leading-relaxed">
+              <h3 className="text-3xl mb-4 text-secondary font-['Chetta_Vissto']">Missão</h3>
+              <p className="text-lg leading-relaxed font-['Montserrat']">
                 Criar produtos de design que respeitem o meio ambiente, valorizem a cultura local e promovam uma relação mais consciente entre pessoas, objetos e natureza.
               </p>
             </div>
             <div className="bg-secondary text-foreground p-8 rounded-lg shadow-lg">
-              <h3 className="text-3xl mb-4 font-bold text-primary">Visão</h3>
-              <p className="text-lg leading-relaxed">
+              <h3 className="text-3xl mb-4 text-primary font-['Chetta_Vissto']">Visão</h3>
+              <p className="text-lg leading-relaxed font-['Montserrat']">
                 Ser referência nacional em design sustentável, reconhecida por unir inovação, estética e impacto social positivo.
               </p>
             </div>
@@ -100,14 +99,14 @@ export default function About() {
       {/* Nossos Valores */}
       <section className="py-20 bg-secondary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl mb-12 text-center text-foreground font-bold">Nossos Valores</h2>
+          <h2 className="text-4xl mb-12 text-center text-foreground font-['Chetta_Vissto']">Nossos Valores</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-secondary/40 flex flex-col h-full">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-secondary/40 flex flex-col h-full font-['Montserrat']">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/40 text-primary mb-4 shrink-0">
                   {value.icon}
                 </div>
-                <h3 className="text-xl mb-2 text-foreground font-bold">{value.title}</h3>
+                <h3 className="text-xl mb-2 text-foreground font-bold font-['Chetta_Vissto']">{value.title}</h3>
                 <p className="text-foreground/70 flex-grow">{value.description}</p>
               </div>
             ))}
@@ -118,9 +117,9 @@ export default function About() {
       {/* Chamada para Ação */}
       <section className="py-20 bg-primary text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl mb-6 font-bold text-secondary">Quer fazer parte dessa história?</h2>
-          <p className="text-xl mb-8">Estamos sempre abertos a novas parcerias e colaborações sustentáveis.</p>
-          <a href="/contato" className="inline-block bg-secondary text-foreground font-bold hover:bg-white px-8 py-4 rounded-lg transition-colors">
+          <h2 className="text-4xl mb-6 text-secondary font-['Chetta_Vissto']">Quer fazer parte dessa história?</h2>
+          <p className="text-xl mb-8 font-['Montserrat']">Estamos sempre abertos a novas parcerias e colaborações sustentáveis.</p>
+          <a href="/contato" className="inline-block bg-secondary text-foreground font-bold hover:bg-white px-8 py-4 rounded-lg transition-colors font-['Montserrat']">
             Entre em Contato
           </a>
         </div>

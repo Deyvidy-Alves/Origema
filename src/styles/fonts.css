@@ -1,0 +1,15 @@
+/* 1. Importando a Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* 2. Configurando a sua fonte customizada Chetta Vissto */
+@font-face {
+  /* O nome aqui precisa ser exatamente igual ao que colocamos no código */
+  font-family: 'Chetta_Vissto'; 
+  
+  /* Ajuste este caminho para onde o seu arquivo de fonte real estiver salvo! 
+     Exemplo: url('../../assets/fonts/chetta-vissto.ttf') */
+  src: url('../../assets/fonts/ChettaVissto.ttf') format('ttf'); /* <- IMPORTANTE: VOCÊ PRECISA TROCAR ESSE URL PELO ARQUIVO DA FONTE REAL! */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

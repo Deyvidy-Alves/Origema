@@ -14,26 +14,24 @@ export default function Header() {
     { label: "Contato", path: "/contato" },
   ];
 
-  // Verifica se a página atual é a mesma do link para destacar no menu
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-foreground/10 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-foreground/10 shadow-sm font-['Montserrat']">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex-shrink-0">
             <img src={logoHorizontal} alt="Origema" className="h-12 w-auto" />
           </Link>
 
-          {/* Menu Desktop */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`transition-colors font-medium ${
+                className={`transition-colors font-semibold tracking-wide ${
                   isActive(item.path)
-                    ? "text-primary" // Verde para a página ativa
+                    ? "text-primary" 
                     : "text-foreground/80 hover:text-primary"
                 }`}
               >
@@ -42,7 +40,6 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Botão Hambúrguer para Mobile */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-foreground hover:text-primary"
@@ -51,7 +48,6 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Dropdown Mobile */}
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-foreground/10">
             {navItems.map((item) => (
@@ -59,7 +55,7 @@ export default function Header() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 font-medium transition-colors ${
+                className={`block py-3 font-semibold tracking-wide transition-colors ${
                   isActive(item.path)
                     ? "text-primary"
                     : "text-foreground/80 hover:text-primary"

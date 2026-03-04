@@ -69,16 +69,26 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
   }
   html {
     font-size: var(--font-size);
   }
-  h1, h2, h3, h4, label, button {
-    font-weight: var(--font-weight-medium);
+  
+  /* Separamos os títulos e forçamos um peso de negrito forte (700 ou 800) */
+  h1, h2, h3, h4 {
+    font-weight: 800 !important; /* 800 é Extra Bold, vai deixar a fonte bem encorpada */
+    line-height: 1.2;
+  }
+  
+  /* Mantemos botões e labels com espessura média para não ficarem agressivos */
+  label, button {
+    font-weight: 600;
     line-height: 1.5;
   }
-  input {
-    font-weight: var(--font-weight-normal);
+  
+  input, textarea, p {
+    font-weight: 400;
     line-height: 1.5;
   }
 }
