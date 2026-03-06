@@ -45,7 +45,7 @@ Certifique-se de ter o Node.js instalado no seu computador. Em seguida, abra o s
 
 1. Clone este repositório:
 ```bash
-git clone [https://github.com/Deyvidy-Alves/Origema.git](https://github.com/Deyvidy-Alves/Origema.git)
+git clone https://github.com/Deyvidy-Alves/Origema.git
 ```
 
 2. Acesse a pasta do projeto:
